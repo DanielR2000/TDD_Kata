@@ -17,7 +17,6 @@ public class TennisSet {
             }
         }
 
-
         if (player1Games == 6 && player2Games == 6) {
             tieBreakActive = true;
             return "Tiebreak activated";
@@ -50,4 +49,6 @@ public class TennisSet {
     public int getPlayer2Games() {
         return player2Games;
     }
+
+
 }

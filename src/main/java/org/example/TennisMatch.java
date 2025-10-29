@@ -9,8 +9,8 @@ public class TennisMatch {
         String result = currentSet.addGameToPlayer(player);
 
         if (result.contains("wins set")) {
-            if (result.contains("1")) player1Sets++;
-            else player2Sets++;
+            if (result.contains("1")) addSetToPlayer(1);
+            else addSetToPlayer(2);
 
             if (player1Sets == 3 || player2Sets == 3) {
                 return (player1Sets > player2Sets) ? "Player 1 wins match" : "Player 2 wins match";
@@ -28,5 +28,10 @@ public class TennisMatch {
 
     public int getPlayer2Sets() {
         return player2Sets;
+    }
+
+    public void addSetToPlayer(int i) {
+        if (i==1) player1Sets++;
+        else if (i==2) player2Sets++;
     }
 }

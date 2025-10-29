@@ -104,7 +104,8 @@ public class BackScoringTest {
 
     //-------------------------------------------------------------------------------------------------------------------
 
-    void test_Player1WinsSet_6_0() {
+    @Test
+    public void test_Player1WinsSet_6_0() {
         TennisSet set = new TennisSet();
 
         for (int i = 0; i < 6; i++) {
@@ -115,7 +116,7 @@ public class BackScoringTest {
     }
 
     @Test
-    void test_TiebreakActivation() {
+    public void test_TiebreakActivation() {
         TennisSet set = new TennisSet();
 
         for (int i = 0; i < 6; i++) {
@@ -127,7 +128,8 @@ public class BackScoringTest {
     }
 
     @Test
-    void test_Player2WinsSet_7_5() {
+    public void test_Player2WinsSet_7_5() {
+
         TennisSet set = new TennisSet();
         for (int i = 0; i < 5; i++) {
             set.addGameToPlayer(1);
@@ -145,7 +147,7 @@ public class BackScoringTest {
     void test_Player1WinsMatch_3_0() {
         TennisMatch match = new TennisMatch();
 
-        // Gana 3 sets seguidos
+        // Ganar 3 sets seguidos
         for (int i = 0; i < 18; i++) {
             String result = match.addGameToPlayer(1);
             if (result.contains("wins match")) {
@@ -154,4 +156,30 @@ public class BackScoringTest {
             }
         }
     }
+
+    //--------------------------------------------------------------------------
+
+    @Test
+    public void test_Player1WinsTieBreak_6_0() {
+        TennisTiebrake tiebrake = new TennisTiebrake();
+        TennisMatch tennisMatch = new TennisMatch();
+
+        //Ganar Tiebrake 6-0
+        for (int i = 0; i < 3; i++){
+            tennisMatch.addSetToPlayer(1);
+            tennisMatch.addSetToPlayer(2);
+        } //Igualados a 3 sets, se activa TieBrake
+
+        for (int i = 0; i < 5; i++) {
+            tiebrake.addPointToPlayer(1);
+        } //Ganaría jugador 1 6-0
+
+        assertEquals("Player 1 Wins Tiebrake", tiebrake.addPointToPlayer);
+
+    }
+
+
+
+
+
 }
