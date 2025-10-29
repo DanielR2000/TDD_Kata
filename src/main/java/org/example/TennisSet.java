@@ -10,8 +10,13 @@ public class TennisSet {
         else player2Games++;
 
         if (isSetWon()) {
-            return (player1Games > player2Games) ? "Player 1 wins set" : "Player 2 wins set";
+            if (player1Games > player2Games) {
+                return "Player 1 wins set";
+            } else {
+                return "Player 2 wins set";
+            }
         }
+
 
         if (player1Games == 6 && player2Games == 6) {
             tieBreakActive = true;
