@@ -6,7 +6,7 @@ public class TennisGame {
     private TennisGameScoring scoring = new TennisGameScoring();
     private boolean finished = false;
 
-    // Añadir un punto a un jugador
+    // Añadir un punto a un jugador (pensada para los test pero no usada
     public String addPointToPlayer(int player) {
         if (finished) {
             return "Game already finished";

@@ -23,10 +23,10 @@ public class TennisGameScoring {
 
         // Caso Win antes de deuce
         if (playerOneScore > 40 && playerOneScore - playerTwoScore >= 20) {
-            return "Player 1 wins";
+            return "Player 1 wins Game";
         }
         if (playerTwoScore > 40 && playerTwoScore - playerOneScore >= 20) {
-            return "Player 2 wins";
+            return "Player 2 wins Game";
         }
 
         // Caso normal puntuacines
