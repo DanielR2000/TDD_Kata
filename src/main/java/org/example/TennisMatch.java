@@ -8,18 +8,30 @@ public class TennisMatch {
     public String addGameToPlayer(int player) {
         String result = currentSet.addGameToPlayer(player);
 
+        // Si el set ha terminado
         if (result.contains("wins set")) {
             if (result.contains("1")) addSetToPlayer(1);
             else addSetToPlayer(2);
 
+            // Comprobamos si el partido ha terminado
             if (player1Sets == 3 || player2Sets == 3) {
-                return (player1Sets > player2Sets) ? "Player 1 wins match" : "Player 2 wins match";
+                if (player1Sets > player2Sets) {
+                    return "Player 1 wins match";
+                } else {
+                    return "Player 2 wins match";
+                }
             }
 
-            currentSet = new TennisSet(); // nuevo set
+            // Si no se ha acabado el partido, reiniciamos el set
+            currentSet = new TennisSet();
         }
 
         return result;
+    }
+
+    public void addSetToPlayer(int player) {
+        if (player == 1) player1Sets++;
+        else if (player == 2) player2Sets++;
     }
 
     public int getPlayer1Sets() {
@@ -28,10 +40,5 @@ public class TennisMatch {
 
     public int getPlayer2Sets() {
         return player2Sets;
-    }
-
-    public void addSetToPlayer(int i) {
-        if (i==1) player1Sets++;
-        else if (i==2) player2Sets++;
     }
 }
