@@ -5,6 +5,7 @@ public class TennisGameScoring {
     public String transformScoreToText(int playerOneScore, int playerTwoScore) {
 
         // Caso Deuce y Advantage
+        //Aqui declaro 50 como advantage y 60 como juego
         if (playerOneScore >= 40 && playerTwoScore >= 40) {
             int diff = playerOneScore - playerTwoScore;
             if (diff == 0) {
@@ -14,9 +15,9 @@ public class TennisGameScoring {
             } else if (diff == -10) {
                 return "Advantage player 2";
             } else if (diff >= 20) {
-                return "Player 1 wins";
+                return "Player 1 wins Game";
             } else if (diff <= -20) {
-                return "Player 2 wins";
+                return "Player 2 wins Game";
             }
         }
 
